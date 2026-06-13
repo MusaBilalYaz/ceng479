@@ -1,6 +1,7 @@
 # Maven
 target/
 *.class
+dependency-reduced-pom.xml
 
 # Build output
 build/
@@ -8,6 +9,7 @@ out/
 
 # JMH results (regenerate locally)
 jmh-results.csv
+speedup_table.csv
 *.json
 
 # IDE
@@ -30,3 +32,4 @@ Thumbs.db
 
 # Speedup charts (report assets — keep these)
 !speedup_*.png
+efficiency_*.png
