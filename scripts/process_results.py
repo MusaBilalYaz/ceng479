@@ -411,7 +411,7 @@ def main():
         plt.ylabel("Efficiency (Speedup / Threads)")
         plt.legend()
         plt.grid(True, alpha=0.3)
-        out = "efficiency_combined_4k_executor.png"
+        out = os.path.join(efficiency_dir, "efficiency_combined_4k_executor.png")
         plt.savefig(out, dpi=120, bbox_inches="tight")
         plt.close()
         print("Wrote", out)

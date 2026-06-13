@@ -120,6 +120,7 @@ public final class App {
     System.out.println("Demo outputs written under: " + outputDir);
     }   
     
+    
     private static String removeExtension(String fileName) {
         int dotIndex = fileName.lastIndexOf('.');
 

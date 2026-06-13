@@ -209,21 +209,22 @@ counts, and implementations.
 After generating `jmh-results.csv`, run:
 
 ```bash
-python scripts/process_results.py jmh-results.csv
+python scripts/process_results.py outputs/benchmark/jmh-results.csv
 ```
 
 The script generates:
 
 ```text
-speedup_table.csv
-speedup_Grayscale.png
-speedup_GaussianBlur5x5.png
-speedup_Sobel3x3.png
-efficiency_Grayscale.png
-efficiency_GaussianBlur5x5.png
-efficiency_Sobel3x3.png
-speedup_combined_4k_executor.png
-efficiency_combined_4k_executor.png
+outputs/benchmark/jmh-results.csv
+outputs/benchmark/speedup_table.csv
+outputs/speedup/speedup_Grayscale.png
+outputs/speedup/speedup_GaussianBlur5x5.png
+outputs/speedup/speedup_Sobel3x3.png
+outputs/speedup/speedup_combined_4k_executor.png
+outputs/efficiency/efficiency_Grayscale.png
+outputs/efficiency/efficiency_GaussianBlur5x5.png
+outputs/efficiency/efficiency_Sobel3x3.png
+outputs/efficiency/efficiency_combined_4k_executor.png
 ```
 
 ---

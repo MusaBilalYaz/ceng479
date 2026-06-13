@@ -7,11 +7,6 @@ dependency-reduced-pom.xml
 build/
 out/
 
-# JMH results (regenerate locally)
-jmh-results.csv
-speedup_table.csv
-*.json
-
 # IDE
 .idea/
 *.iml
@@ -25,11 +20,3 @@ speedup_table.csv
 .DS_Store
 Thumbs.db
 
-# Generated demo images (test outputs)
-*_Grayscale.png
-*_GaussianBlur5x5.png
-*_Sobel3x3.png
-
-# Speedup charts (report assets — keep these)
-!speedup_*.png
-efficiency_*.png
