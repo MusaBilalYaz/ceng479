@@ -5,7 +5,7 @@ process_results.py — Turn raw JMH CSV output into speedup, efficiency and
 throughput tables/graphs.
 
 Usage:
-    python scripts/process_results.py jmh-results.csv
+    python scripts/process_results.py outputs/benchmark/jmh-results.csv
 
 Expected JMH parameters:
     Param: imageCase   examples: 512x512, 1024x1024, 2048x2048, 3840x2160
