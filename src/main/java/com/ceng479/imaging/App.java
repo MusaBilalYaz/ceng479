@@ -13,7 +13,6 @@ import com.ceng479.imaging.sequential.SequentialProcessor;
 import com.ceng479.imaging.util.CorrectnessVerifier;
 import com.ceng479.imaging.util.ImageIOUtils;
 import com.ceng479.imaging.util.ImageIOUtils.ImageData;
-
 /**
  * Command-line entry point.
  *
@@ -93,34 +92,34 @@ public final class App {
     }
 
     private static void runImageDemo(String inputPath) throws Exception {
-        System.out.println("Loading " + inputPath + " ...");
-        ImageData img = ImageIOUtils.load(inputPath);
-        System.out.printf("Loaded %dx%d image.%n", img.width, img.height);
+    System.out.println("Loading " + inputPath + " ...");
+    ImageData img = ImageIOUtils.load(inputPath);
+    System.out.printf("Loaded %dx%d image.%n", img.width, img.height);
 
-        int threads = Runtime.getRuntime().availableProcessors();
+    int threads = Runtime.getRuntime().availableProcessors();
 
-        Path outputDir = Path.of("outputs", "demo");
-        Files.createDirectories(outputDir);
+    Path outputDir = Path.of("outputs", "demo");
+    Files.createDirectories(outputDir);
 
-        Path inputFile = Path.of(inputPath);
-        String fileName = inputFile.getFileName().toString();
-        String baseName = removeExtension(fileName);
+    Path inputFile = Path.of(inputPath);
+    String fileName = inputFile.getFileName().toString();
+    String baseName = removeExtension(fileName);
 
-        try (ExecutorParallelProcessor exec = new ExecutorParallelProcessor(threads)) {
-            for (Filter filter : FILTERS) {
-                int[] out = exec.process(img.pixels, img.width, img.height, filter);
+    try (ExecutorParallelProcessor exec = new ExecutorParallelProcessor(threads)) {
+        for (Filter filter : FILTERS) {
+            int[] out = exec.process(img.pixels, img.width, img.height, filter);
 
-                Path outputPath = outputDir.resolve(baseName + "_" + filter.name() + ".png");
-                ImageIOUtils.savePng(out, img.width, img.height, outputPath.toString());
+            Path outputPath = outputDir.resolve(baseName + "_" + filter.name() + ".png");
+            ImageIOUtils.savePng(out, img.width, img.height, outputPath.toString());
 
-                System.out.println("  Saved " + outputPath);
-            }
+            System.out.println("  Saved " + outputPath);
         }
-
-        System.out.println();
-        System.out.println("Demo outputs written under: " + outputDir);
     }
 
+    System.out.println();
+    System.out.println("Demo outputs written under: " + outputDir);
+    }   
+    
     private static String removeExtension(String fileName) {
         int dotIndex = fileName.lastIndexOf('.');
 
